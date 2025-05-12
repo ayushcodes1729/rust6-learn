@@ -1,12 +1,40 @@
-// Passing a mutable reference to a function
-fn main() {
-    let mut s1 = String::from("Hey Guys!");
-    takes_ownership(&mut s1);
+struct User {
+    name: String,
+    age: u32,
+    active: bool
 }
 
-fn takes_ownership(sent: &mut String) {
-    sent.push_str(" I am Ayush");
+impl User {
+    fn tell_name_age(&self){
+        println!("Name is {} and age is {}", self.name, self.age );
+    }
 }
+
+fn main() {
+    let user1 = User{
+        name: String::from("Ayush Kumar"),
+        age: 21,
+        active: true
+    };
+    user1.tell_name_age();
+    // println!("{} is {} and of age {}", user1.name, user1.active, user1.age); 
+}
+
+
+// // Passing a mutable reference to a function
+// fn main() {
+//     let mut s1 = String::from("Hey Guys!");
+//     takes_ownership(&mut s1);
+//     // not good 
+//     let s3 = &s1;
+//     let s4 = &s1;
+//     println!("{}", s1);
+//     println!("{}", s3);
+// }
+
+// fn takes_ownership(sent: &mut String) {
+//     sent.push_str(" I am Ayush");
+// }
 
 // fn main() {
 //     // let sentence = String::from("Hey I am Ayush");
