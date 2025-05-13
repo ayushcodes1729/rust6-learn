@@ -1,24 +1,42 @@
-struct User {
-    name: String,
-    age: u32,
-    active: bool
-}
-
-impl User {
-    fn tell_name_age(&self){
-        println!("Name is {} and age is {}", self.name, self.age );
-    }
+// enums in rust
+#[derive(Debug)]
+enum Direction {
+    North,
+    South,
+    West,
+    East
 }
 
 fn main() {
-    let user1 = User{
-        name: String::from("Ayush Kumar"),
-        age: 21,
-        active: true
-    };
-    user1.tell_name_age();
-    // println!("{} is {} and of age {}", user1.name, user1.active, user1.age); 
+    let result = printDir(Direction::North);
+    println!("{:?}", result);
 }
+
+fn printDir(dir : Direction)-> Direction{
+    return dir;
+}
+
+// struct User {
+//     name: String,
+//     age: u32,
+//     active: bool
+// }
+
+// impl User {
+//     fn tell_name_age(&self){
+//         println!("Name is {} and age is {}", self.name, self.age );
+//     }
+// }
+
+// fn main() {
+//     let user1 = User{
+//         name: String::from("Ayush Kumar"),
+//         age: 21,
+//         active: true
+//     };
+//     user1.tell_name_age();
+//     // println!("{} is {} and of age {}", user1.name, user1.active, user1.age); 
+// }
 
 
 // // Passing a mutable reference to a function
