@@ -1,21 +1,48 @@
-// Option for null
+// external packages
 
-fn find_first_a(s: String) -> Option<i32> {
-    for (index, character) in s.chars().enumerate() {
-        if character == 'a' {
-            return Some(index as i32);
-        }
-    }
-    return None;
-}
+use chrono::{Local, Utc};
 
 fn main() {
-    let my_string = String::from("raman");
-    match find_first_a(my_string) {
-        Some(index) => println!("The letter 'a' is found at index: {}", index),
-        None => println!("The letter 'a' is not found in the string."),
-    }
+    // Get the current date and time in UTC
+    let now = Utc::now();
+    println!("Current date and time in UTC: {}", now);
+
+    // Format the date and time
+    let formatted = now.format("%Y-%m-%d %H:%M:%S");
+    println!("Formatted date and time: {}", formatted);
+
+    // Get local time
+    let local = Local::now();
+    println!("Current date and time in local: {}", local);
 }
+
+
+// use rand::{Rng, rng};
+
+// fn main() {
+//     let mut rng = rng();
+//     let n: u32 = rng.random();
+//     println!("Random number: {}", n);
+// }
+
+// // Option for null
+
+// fn find_first_a(s: String) -> Option<i32> {
+//     for (index, character) in s.chars().enumerate() {
+//         if character == 'a' {
+//             return Some(index as i32);
+//         }
+//     }
+//     return None;
+// }
+
+// fn main() {
+//     let my_string = String::from("raman");
+//     match find_first_a(my_string) {
+//         Some(index) => println!("The letter 'a' is found at index: {}", index),
+//         None => println!("The letter 'a' is not found in the string."),
+//     }
+// }
 
 // // Error Handling in Rust
 
