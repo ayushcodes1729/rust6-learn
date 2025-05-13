@@ -1,20 +1,40 @@
-// enums in rust
-#[derive(Debug)]
-enum Direction {
-    North,
-    South,
-    West,
-    East
+// Pattern matching and enums with value
+enum Shape {
+    Circle(f64),
+    Square(f64),
+    Rectangle(f64,f64)
+}
+
+fn calculate_area(shape: Shape) -> f64 {
+    match shape {
+        Shape::Circle(rad) => 3.14* rad* rad,
+        Shape::Square(side) => side* side,
+        Shape::Rectangle(len,brd ) => len* brd
+    }
 }
 
 fn main() {
-    let result = printDir(Direction::North);
-    println!("{:?}", result);
+    let ans = calculate_area(Shape::Square(2.2));
+    println!("{}",ans);
 }
 
-fn printDir(dir : Direction)-> Direction{
-    return dir;
-}
+// // enums in rust
+// #[derive(Debug)]
+// enum Direction {
+//     North,
+//     South,
+//     West,
+//     East
+// }
+
+// fn main() {
+//     let result = printDir(Direction::North);
+//     println!("{:?}", result);
+// }
+
+// fn printDir(dir : Direction)-> Direction{
+//     return dir;
+// }
 
 // struct User {
 //     name: String,
