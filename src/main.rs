@@ -1,20 +1,37 @@
-// Error Handling in Rust
-
-use std::fs;
-
-fn main() {
-    let res = fs::read_to_string("ex.txt");
-    match res {
-        Ok(content) => {
-            println!("This is the file content: {}", content);
-        }
-        Err(content) => {
-            println!("This is an error: {}", content);
+fn find_first_a(s: String) -> Option<i32> {
+    for (index, character) in s.chars().enumerate() {
+        if character == 'a' {
+            return Some(index as i32);
         }
     }
-
-    println!("Hi there!")
+    return None;
 }
+
+fn main() {
+    let my_string = String::from("raman");
+    match find_first_a(my_string) {
+        Some(index) => println!("The letter 'a' is found at index: {}", index),
+        None => println!("The letter 'a' is not found in the string."),
+    }
+}
+
+// // Error Handling in Rust
+
+// use std::fs;
+
+// fn main() {
+//     let res = fs::read_to_string("ex.txt");
+//     match res {
+//         Ok(content) => {
+//             println!("This is the file content: {}", content);
+//         }
+//         Err(content) => {
+//             println!("This is an error: {}", content);
+//         }
+//     }
+
+//     println!("Hi there!")
+// }
 
 
 // // Pattern matching and enums with value
