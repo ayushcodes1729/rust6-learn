@@ -1,22 +1,41 @@
-// Pattern matching and enums with value
-enum Shape {
-    Circle(f64),
-    Square(f64),
-    Rectangle(f64,f64)
-}
+// Error Handling in Rust
 
-fn calculate_area(shape: Shape) -> f64 {
-    match shape {
-        Shape::Circle(rad) => 3.14* rad* rad,
-        Shape::Square(side) => side* side,
-        Shape::Rectangle(len,brd ) => len* brd
-    }
-}
+use std::fs;
 
 fn main() {
-    let ans = calculate_area(Shape::Square(2.2));
-    println!("{}",ans);
+    let res = fs::read_to_string("ex.txt");
+    match res {
+        Ok(content) => {
+            println!("This is the file content: {}", content);
+        }
+        Err(content) => {
+            println!("This is an error: {}", content);
+        }
+    }
+
+    println!("Hi there!")
 }
+
+
+// // Pattern matching and enums with value
+// enum Shape {
+//     Circle(f64),
+//     Square(f64),
+//     Rectangle(f64,f64)
+// }
+
+// fn calculate_area(shape: Shape) -> f64 {
+//     match shape {
+//         Shape::Circle(rad) => 3.14* rad* rad,
+//         Shape::Square(side) => side* side,
+//         Shape::Rectangle(len,brd ) => len* brd
+//     }
+// }
+
+// fn main() {
+//     let ans = calculate_area(Shape::Square(2.2));
+//     println!("{}",ans);
+// }
 
 // // enums in rust
 // #[derive(Debug)]
