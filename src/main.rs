@@ -1,3 +1,5 @@
+// Option for null
+
 fn find_first_a(s: String) -> Option<i32> {
     for (index, character) in s.chars().enumerate() {
         if character == 'a' {
