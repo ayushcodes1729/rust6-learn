@@ -1,25 +1,17 @@
-use std::io;
-// fn to check even or odd
-fn main() {
-    println!("Enter a number: ");
-    let mut number = String::new();
-    io::stdin().read_line(&mut number).expect("Error in reading number");
-    let number: i32 = match number.trim().parse(){
-        Ok(num) => num,
-        Err(_) => {
-            println!("Enter a number");
-            return;
-        },
-    };
+// print fibonacci at an index 0, 1, 1, 2, 3, 5, 8, 13, ....
 
-    is_even(number);
+fn main() {
+    println!("Number in fibonacci series at index 3 is {}",fib(3));
 }
 
-fn is_even(number: i32) {
-    if number % 2 == 0 {
-        println!("{} is an even number", number);
-    }
-    else {
-        println!("{} is an odd number", number);
-    }
+fn fib(number: i32)-> i32 {
+        if number == 0 {
+            return 0
+        }
+        else if number == 1 {
+            return 1
+        }
+        else {
+            return fib(number-1) + fib(number-2)
+        }
 }
