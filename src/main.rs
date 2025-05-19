@@ -1,21 +1,15 @@
-// Area of a shape square, circle, rectangle
+// Reading a file 
 
-enum Shapes {
-    Circle(f64),
-    Square(f64),
-    Rectangle(f64, f64)
-}
-
-fn calculate_area(shape: Shapes)-> f64 {
-    match shape {
-        Shapes::Square(s)=> s*s,
-        Shapes::Circle(r)=> 3.14*r*r,
-        Shapes::Rectangle(l,b ) => l*b
-    }
-}
+use std::fs;
 
 fn main() {
-    let rect = Shapes::Rectangle(2.0, 3.0);
-    let area = calculate_area(rect);
-    println!("Area of the shape is {}", area);
+    let file_content = match fs::read_to_string("./helfdlo.txt") {
+        Ok(content) => content,
+        Err(_) => {
+            println!("Can't find the string");
+            return;
+        }
+    };
+
+    println!("File content: {}", file_content);
 }
