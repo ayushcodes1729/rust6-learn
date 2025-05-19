@@ -1,9 +1,21 @@
-// returns the length of a string
+// Area of a shape square, circle, rectangle
 
-fn main() {
-    println!("Lenght of the string Ayush is {}", get_str_length("Ayush@$#R$Ri"));
+enum Shapes {
+    Circle(f64),
+    Square(f64),
+    Rectangle(f64, f64)
 }
 
-fn get_str_length(input: &str)-> usize {
-    return input.chars().count();
+fn calculate_area(shape: Shapes)-> f64 {
+    match shape {
+        Shapes::Square(s)=> s*s,
+        Shapes::Circle(r)=> 3.14*r*r,
+        Shapes::Rectangle(l,b ) => l*b
+    }
+}
+
+fn main() {
+    let rect = Shapes::Rectangle(2.0, 3.0);
+    let area = calculate_area(rect);
+    println!("Area of the shape is {}", area);
 }

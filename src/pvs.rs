@@ -1,5 +1,15 @@
 
 
+// // returns the length of a string
+
+// fn main() {
+//     println!("Lenght of the string Ayush is {}", get_str_length("Ayush@$#R$Ri"));
+// }
+
+// fn get_str_length(input: &str)-> usize {
+//     return input.chars().count();
+// }
+
 // // print fibonacci at an index 0, 1, 1, 2, 3, 5, 8, 13, ....
 
 // fn main() {
