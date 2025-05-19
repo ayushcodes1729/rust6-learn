@@ -1,17 +1,9 @@
-// print fibonacci at an index 0, 1, 1, 2, 3, 5, 8, 13, ....
+// returns the length of a string
 
 fn main() {
-    println!("Number in fibonacci series at index 3 is {}",fib(3));
+    println!("Lenght of the string Ayush is {}", get_str_length("Ayush@$#R$Ri"));
 }
 
-fn fib(number: i32)-> i32 {
-        if number == 0 {
-            return 0
-        }
-        else if number == 1 {
-            return 1
-        }
-        else {
-            return fib(number-1) + fib(number-2)
-        }
+fn get_str_length(input: &str)-> usize {
+    return input.chars().count();
 }
