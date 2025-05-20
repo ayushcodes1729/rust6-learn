@@ -1,15 +1,6 @@
-// Reading a file 
-
-use std::fs;
-
 fn main() {
-    let file_content = match fs::read_to_string("./helfdlo.txt") {
-        Ok(content) => content,
-        Err(_) => {
-            println!("Can't find the string");
-            return;
-        }
-    };
-
-    println!("File content: {}", file_content);
+    let name = String::from("Ayush");
+    let s1 = &name;
+    println!("{}",name);
+    println!("{}", s1); // It gives the output Ayush but not a number because it doesn't stores the address of the string Ayush but it borrows it
 }

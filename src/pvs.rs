@@ -1,5 +1,31 @@
 
 
+// Borrowing
+
+// fn main() {
+//     let name = String::from("Ayush");
+//     let s1 = &name;
+//     println!("{}",name);
+//     println!("{}", s1); // It gives the output Ayush but not a number because it doesn't stores the address of the string Ayush but it borrows it
+// }
+
+// // Reading a file 
+
+// use std::fs;
+
+// fn main() {
+//     let file_content = match fs::read_to_string("./helfdlo.txt") {
+//         Ok(content) => content,
+//         Err(_) => {
+//             println!("Can't find the string");
+//             return;
+//         }
+//     };
+
+//     println!("File content: {}", file_content);
+// }
+
+
 // // Area of a shape square, circle, rectangle
 
 // enum Shapes {
@@ -185,7 +211,7 @@
 //     // println!("{} is {} and of age {}", user1.name, user1.active, user1.age); 
 // }
 
-
+// At any given time a variable can have only 1 mutable references or multiple immutable references
 // // Passing a mutable reference to a function
 // fn main() {
 //     let mut s1 = String::from("Hey Guys!");
