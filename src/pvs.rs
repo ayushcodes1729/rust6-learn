@@ -1,4 +1,47 @@
 
+// use std::collections::HashMap;
+
+// fn main() {
+//     let mut users: HashMap<String, u32> = HashMap::new();
+//     users.insert(String::from("Ayush"), 21);
+//     users.insert(String::from("Harkirat"), 24);
+
+//     let admin = users.get("Ayush");
+//     let age = match admin {
+//         Some(age) => age,
+//         None => {
+//             println!("Enter a valid user");
+//             &0
+//         },
+//     };
+//     if *age > 0 {
+//         println!("User age: {}", age);
+//     }
+// }
+
+// // Return a vector with only even values
+
+// fn main() {
+//     let mut vec = Vec::new();
+//     vec.push(1);
+//     vec.push(2);
+//     vec.push(3);
+//     vec.push(4);
+//     println!("{:?}", get_even(&mut vec));
+// }
+
+// fn get_even(vector: &Vec<i32>) -> Vec<i32> {
+//     let mut vec = Vec::new();
+//     for val in vector {
+//         if val%2 == 0 {
+//             vec.push(*val);
+//         }
+//         else {
+//             continue;
+//         }
+//     }
+//     return vec;
+// }
 
 // Borrowing
 

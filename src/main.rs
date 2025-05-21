@@ -1,23 +1,39 @@
-// Return a vector with only even values
+use std::collections::{btree_map::Values, HashMap};
 
 fn main() {
-    let mut vec = Vec::new();
-    vec.push(1);
-    vec.push(2);
-    vec.push(3);
-    vec.push(4);
-    println!("{:?}", get_even(&mut vec));
+    let pairs = vec![
+        (String::from("Ayush"), 24),
+        (String::from("Harkirat"), 21),
+        (String::from("Ayush"), 21),
+    ];
+
+    let ghp = hp_by_pairs(pairs);
+    println!("Hashmap is {:?}", ghp)
+
 }
 
-fn get_even(vector: &Vec<i32>) -> Vec<i32> {
-    let mut vec = Vec::new();
-    for val in vector {
-        if val%2 == 0 {
-            vec.push(*val);
-        }
-        else {
-            continue;
-        }
+fn hp_by_pairs(pairs: Vec<(String, i32)>)-> HashMap<String, i32>{
+    let mut hm = HashMap::new();
+    for (key, val) in pairs {
+        hm.insert(key, val);
     }
-    return vec;
+    return hm;
 }
+
+// fn main() {
+//     let mut users: HashMap<String, u32> = HashMap::new();
+//     users.insert(String::from("Ayush"), 21);
+//     users.insert(String::from("Harkirat"), 24);
+
+//     let admin = users.get("Ayush");
+//     let age = match admin {
+//         Some(age) => age,
+//         None => {
+//             println!("Enter a valid user");
+//             &0
+//         },
+//     };
+//     if *age > 0 {
+//         println!("User age: {}", age);
+//     }
+// }
