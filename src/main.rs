@@ -10,7 +10,6 @@ fn main() {
     people.insert("Papa", 48);
     people.insert("Mumma", 47);
 
-    let result: HashMap<&str, i32> = people.iter().filter(|x| *x.1 <= 40).map(|(key, val)| (*key, *val)).collect();
-
+    let result: HashMap<&str, i32> = people.iter().filter(|x| *x.1 <= 40).map(|(key, val)| (*key, *val)).collect(); //imp note here is that when we have to convert an iterator to hashmap we have to first use map to make a vector iterator of key-value pair tuples
     println!("{:?}", result);
 }
