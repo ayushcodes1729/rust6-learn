@@ -2,6 +2,19 @@
 //     let nums = vec![1, 2, 3, 5, 7];
 //     let nums_iter = nums.iter(); 
 
+//     let mut iter2 = nums_iter.map(|x| x+1); // this is a iterator adaptor
+
+//     while let Some(val) = iter2.next() {
+//         println!("{}", val);
+//     }
+//     println!("{:?}", nums);
+// }
+
+
+// fn main() {
+//     let nums = vec![1, 2, 3, 5, 7];
+//     let nums_iter = nums.iter(); 
+
 //     let total: i32 = nums_iter.sum(); // A consuming adapter which takes the ownership of an iterator. How do we know that? Since it takes self as a parameter but not &self as a parameter.
 
 //     println!("{}", total);
