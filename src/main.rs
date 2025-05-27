@@ -1,10 +1,10 @@
 fn main() {
     let nums = vec![1, 2, 3, 5, 7];
-    let mut nums_iter = nums.into_iter(); // wen need to make nums_iter mutable because we are using .next()which splits an iterator into its element
-    // into_iter() creates an iterator by taking the ownership from the vector but not by borrowing it.
+    let nums_iter = nums.iter(); 
 
-    while let Some(val) = nums_iter.next(){
-        println!("{}", val);
-    }
-    // println!("{:?}", nums);
+    let total: i32 = nums_iter.sum(); // A consuming adapter which takes the ownership of an iterator. How do we know that? Since it takes self as a parameter but not &self as a parameter.
+
+    println!("{}", total);
+    // print!("{:?}", nums_iter); // We can't use the iterator anymore here because it is consumed by the sum adapter
+    println!("{:?}", nums); // We can still us the vector since the adapter consumes the iterator but not the vector
 }
