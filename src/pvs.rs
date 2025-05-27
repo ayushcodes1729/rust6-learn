@@ -1,5 +1,17 @@
 // fn main() {
 //     let nums = vec![1, 2, 3, 5, 7];
+//     let mut nums_iter = nums.iter();
+
+//     while let Some(val) = nums_iter.next(){
+//         println!("{}", val);
+//     }
+//     println!("{:?}", nums);
+// }
+
+
+
+// fn main() {
+//     let nums = vec![1, 2, 3, 5, 7];
 //     let nums_iter = nums.iter(); //nums.iter() let's nums_iter to borrow the values inside nums vector.
 //     for values in nums_iter {
 //         println!("{}", values);
