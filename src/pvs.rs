@@ -1,3 +1,20 @@
+// // WAP to filter out all the people from a hasmap having age>40 and create a new hashmap which has the remaining people.
+
+// use std::collections::HashMap;
+
+// fn main() {
+
+//     let mut people = HashMap::new();
+//     people.insert("Harkirat", 28);
+//     people.insert("Ayush", 21);
+//     people.insert("Papa", 48);
+//     people.insert("Mumma", 47);
+
+//     let result: HashMap<&str, i32> = people.iter().filter(|x| *x.1 <= 40).map(|(key, val)| (*key, *val)).collect(); //imp note here is that when we have to convert an iterator to hashmap we have to first use map to make a vector iterator of key-value pair tuples
+//     println!("{:?}", result);
+// }
+
+
 // // WAP to first filter out all the odd values from a vector then double it and then cereate a new resultant vector
 
 // fn main() {
