@@ -1,31 +1,26 @@
-// WAP to get the first name of your name froma  string
+// Traits
 
-fn main() {
-    let name = String::from("Ayush Kumar");
-    let result_word = get_first_word(&name);
-    println!("{}", name);
-    println!("{}", result_word);
-    // Using String
-    // let mut answer = String::from("");
-    // for i in name.chars() {
-    //     if i==' ' {
-    //         break;
-    //     }
-    //     answer.push_str(&(i.to_string()));
-    // }
-
-    // println!("{}",answer);
+// Defining a trait (Abstract way). We can also make a default implementation here by defining the function here in the trait def also
+pub trait Call {
+    fn call_me(&self)-> String;
 }
 
-// By using slices
-fn get_first_word(word: &String) -> &str {
-    let mut index = 0;
-    for i in word.chars() {
-        if i==' ' {
-            break;
-        }
-        index+=1;
-    }
+struct User {
+    name: String,
+    age: i32
+}
 
-    return &word[0..index];
+// Implementing Call trait for User struct
+impl Call for User {
+    fn call_me(&self)-> String {
+        return format!("User name is {} and age is {}", self.name, self.age);
+    }
+}
+fn main() {
+    let user = User{
+        name: String::from("Ayush"),
+        age: 21
+    };
+    let result =user.call_me();
+    println!("{}", result);
 }
