@@ -1,19 +1,16 @@
-// WAP to first filter out all the odd values from a vector then double it and then cereate a new resultant vector
+// WAP to filter out all the people from a hasmap having age>40 and create a new hashmap which has the remaining people.
+
+use std::collections::HashMap;
 
 fn main() {
 
-    let v = vec![1,2,3,4,5,6,7,8,9];
-    let result: Vec<i32>= v.iter().filter(|x| *x % 2 != 0).map(|x| x*2).collect(); // The collect method consumes the iterator and converts it into a collection data type(here, vector)
+    let mut people = HashMap::new();
+    people.insert("Harkirat", 28);
+    people.insert("Ayush", 21);
+    people.insert("Papa", 48);
+    people.insert("Mumma", 47);
+
+    let result: HashMap<&str, i32> = people.iter().filter(|x| *x.1 <= 40).map(|(key, val)| (*key, *val)).collect();
 
     println!("{:?}", result);
-
-
-    //The below solution is great but it returns an iterator doubled_val but we need a vector
-    // let v = vec![1,2,3,4,5,6,7,8,9];
-    // let iter = v.iter();
-    // let odd_val = iter.filter(|x| *x % 2 != 0);
-    // let doubled_val = odd_val.map(|x| x*2);
-    // for val in doubled_val {
-    //     println!("{}", val);
-    // }
 }
