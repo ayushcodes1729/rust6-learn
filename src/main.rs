@@ -1,21 +1,12 @@
-// Lifetimes
-
-fn main() {
-    let ans;
-    let s1 = String::from("Ayushaaaaaa");
-    {
-        let s2 = String::from("Harkirat");
-        ans = get_long_string(&s1, &s2); // Introduction of lifetime generic Annotation gives us better error here i.e. s2 doesn't lives long enough
-    }
-    println!("{}",ans);
+// Using lifetimes with structs
+struct User<'a> {
+    name: &'a str
 }
 
-// 'a is the lifetime generic Annotation below it eshtablishes a relationship between the lifetime of the parameters and the return value. The lifetime of the return value will be the shorter(intersection) of lifetime of both parameters
-fn get_long_string<'a>(s1: &'a str, s2: &'a str)-> &'a str {
-    if s1.chars().count() > s2.chars().count() {
-        return s1;
-    }
-    else {
-        return s2;
-    }
+// Why do we need structs with references to have a lifetime parameter? So that we know how long the struct is gonna live. If the borrowed value inside the struct dies some how(i.e. goes out of scope) then the struct should also die, else it will create a dangling pointer error.
+
+fn main() {
+    let first_name = String::from("Ayush");
+    let user = User {name: &first_name};
+    println!("The name of the user is {}", user.name);
 }
