@@ -1,41 +1,21 @@
-// Traits
+// Lifetimes
 
-// Defining a trait (Abstract way). We can also make a default implementation here by defining the function here in the trait def also
-pub trait Call {
-    fn call_me(&self)-> String{
-        return "Hi there".to_string();
-    }
-}
-pub trait Call2 {
-    fn call_us(&self)-> String{
-        return "Hi there".to_string();
-    }
-}
-
-struct User {
-    name: String,
-    age: i32
-}
-
-// Implementing Call trait for User struct
-impl Call for User {
-    fn call_me(&self)-> String {
-        return format!("User name is {} and age is {}", self.name, self.age);
-    }
-}
-impl Call2 for User{}
 fn main() {
-    let user = User{
-        name: String::from("Ayush"),
-        age: 21
-    };
-    let result =user.call_me();
-    println!("{}", result);
-    println!("{}", notify(&user)); // passing by reference is not necessary but if you passs by reference then you can access user.name in the next line
-    print!("{}", user.name);
+    let ans;
+    let s1 = String::from("Ayushaaaaaa");
+    {
+        let s2 = String::from("Harkirat");
+        ans = get_long_string(&s1, &s2); // Introduction of lifetime generic Annotation gives us better error here i.e. s2 doesn't lives long enough
+    }
+    println!("{}",ans);
 }
 
-// Trait as an argument: just a syntax sugar to write that a particular struct is bound to some trait. Eg. pub fn notify<T: Call>(item: &T)-> String and if we want to implement multiple trait then pub fn notify<T: Call + Call2>(item: &T)-> String
-pub fn notify(item: &impl Call)-> String {
-    return "Hey this is a notification".to_string();
+// 'a is the lifetime generic Annotation below it eshtablishes a relationship between the lifetime of the parameters and the return value. The lifetime of the return value will be the shorter(intersection) of lifetime of both parameters
+fn get_long_string<'a>(s1: &'a str, s2: &'a str)-> &'a str {
+    if s1.chars().count() > s2.chars().count() {
+        return s1;
+    }
+    else {
+        return s2;
+    }
 }
