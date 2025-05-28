@@ -1,19 +1,19 @@
-// longest string with lifetimes
-use std::fmt::Display;
+// Multithreading
 
+use std::{thread, time::Duration};
 
 fn main() {
-    let s1= String::from("Ayush");
-    let s2= String::from("Harkirat");
-    let res = longest_with_an_annoucement(&s1, &s2, String::from("Hey this is ann"));
-    println!("{}",res)
-}
+    let handle =thread::spawn(|| {
+        for i in 1..10 {
+            println!("Hi from the new thread {}", i);
+            thread::sleep(Duration::from_millis(1));
+        }
+    });
 
-fn longest_with_an_annoucement<'a, T>(str1: &'a str,str2: &'a str, ann: T)-> &'a str where T: Display, {
-    println!("Announcement! {}",ann);
-    if str1.len() > str2.len() {
-        str1
-    }else {
-        str2
+    handle.join().unwrap(); // Awaits for the handle to complete and then run the main thread. This prevents interlinked output(parallism). We can get interlinked output if we put this line at the end of the program
+    for i in 1..5 {
+        println!("Hi from the main thread {}", i);
+        thread::sleep(Duration::from_millis(1));
+
     }
 }
