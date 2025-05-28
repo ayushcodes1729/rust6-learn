@@ -1,19 +1,19 @@
-// Multithreading
+// Using Move closures in rust
 
-use std::{thread, time::Duration};
+use std::thread;
 
 fn main() {
-    let handle =thread::spawn(|| {
-        for i in 1..10 {
-            println!("Hi from the new thread {}", i);
-            thread::sleep(Duration::from_millis(1));
-        }
+    let v = vec![1,2,3,4,5];
+
+    // The below code doesn't runs because v may go out of scope even before the thread get's spwan and since the thread borrows the vector v it can cause a dangling pointer error that's why we move the ownership of vec v to the macro inside the thread by using move keyword
+    // let handle = thread::spawn(|| {
+    //     println!("{:?}",v)
+    // });
+    let handle = thread::spawn(move || {
+        println!("{:?}",v)
     });
 
-    handle.join().unwrap(); // Awaits for the handle to complete and then run the main thread. This prevents interlinked output(parallism). We can get interlinked output if we put this line at the end of the program
-    for i in 1..5 {
-        println!("Hi from the main thread {}", i);
-        thread::sleep(Duration::from_millis(1));
+    // println!("{:?}", v); // Err: borrow of a moved value v
 
-    }
+    handle.join().unwrap();
 }
